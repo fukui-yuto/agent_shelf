@@ -1,0 +1,25 @@
+[project]
+name = "agent-shelf"
+version = "0.1.0"
+description = "Convention-over-configuration AI agent framework"
+readme = "README.md"
+authors = [
+    { name = "Yuto", email = "yuto0828.pc@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=0.52",
+    "httpx>=0.27",
+    "chromadb>=1.0",
+    "sentence-transformers>=4.0",
+    "openai>=1.60",
+    "click>=8.1",
+    "rich>=13.0",
+]
+
+[project.scripts]
+agent = "agent_shelf.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.11.7,<0.12.0"]
+build-backend = "uv_build"
