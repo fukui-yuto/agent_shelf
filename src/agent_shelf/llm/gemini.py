@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import json
 import os
 import uuid
 from typing import Any
@@ -115,7 +114,7 @@ class GeminiAdapter:
                 fc = part["functionCall"]
                 tool_calls.append(
                     ToolCall(
-                        id=fc.get("name", uuid.uuid4().hex[:12]),
+                        id=uuid.uuid4().hex[:12],
                         name=fc["name"],
                         arguments=fc.get("args", {}),
                     )

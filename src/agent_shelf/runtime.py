@@ -46,7 +46,7 @@ class AgentRuntime:
         # RAG retrieval
         rag_context = ""
         sources: list[dict[str, str]] = []
-        if self._rag and self._rag._collection.count() > 0:
+        if self._rag and self._rag.has_index():
             hits = self._rag.query(user_input)
             if hits:
                 sources = hits

@@ -65,6 +65,9 @@ class RAGEngine:
 
         return len(all_chunks)
 
+    def has_index(self) -> bool:
+        return self._collection.count() > 0
+
     def query(self, text: str, top_k: int = 5) -> list[dict[str, str]]:
         if self._collection.count() == 0:
             return []

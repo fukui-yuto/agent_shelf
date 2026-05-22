@@ -2,7 +2,17 @@
 
 from __future__ import annotations
 
+import os
+import sys
 from pathlib import Path
+
+# Windows コンソールの文字化け対策: UTF-8 を強制
+if sys.platform == "win32":
+    os.environ.setdefault("PYTHONIOENCODING", "utf-8")
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
+    if hasattr(sys.stderr, "reconfigure"):
+        sys.stderr.reconfigure(encoding="utf-8")
 
 import click
 from dotenv import load_dotenv
